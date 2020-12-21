@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <p><h1>User List</h1></p>
+  <br />
+  <br />
+{% if user != None %}
+<table id="allGifts">
+  <thead>
+    <th>Gift Item</th>
+    <th>User</th>
+  </thead>
+  <tbody>
+
+  {% for gift in allGifts %}
+    <tr>
+      <td><p>{{gift.name}}</p></td>
+      <td><p>{{gift.user}}</p></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p>{{loginMessage}}</p>
+  <p><a href='/'>Login</a></p>
+  <p><a href='/register/'>Register</a></p>
+{% endif %}
+{% endblock content %}

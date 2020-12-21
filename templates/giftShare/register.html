@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<p><h1>Gift List Registration</h1></p>
+<br />
+<br />
+
+<p><h3>Please Register Here:</h3></p>
+{% if errorMessage %}
+  <h3 style='color: red;'>{{errorMessage}}</h3>
+{% endif %}
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{f.as_p}}
+  </table>
+  <input type="submit">
+</form>
+
+{% endblock content %}

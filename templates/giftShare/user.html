@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <p><h1>User List</h1></p>
+  <br />
+  <br />
+
+{% if user != None %}
+  <p><a href='/giftSearch/'>Click here to view all user gifts:</a></p>
+{% else %}
+  <p>{{loginMessage}}</p>
+  <p><a href='/'>Login</a></p>
+  <p><a href='/register/'>Register</a></p>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user != None %}
+  <p><h1>Welcome to GiftShare, {{name}}!</h1></p>
+{% else %}
+  <p><h1>Welcome to GiftShare!</h1></p>
+{% if msg %}
+  <p style='color: red;'>{{msg}}</p>
+{% endif %}
+
+  <p><h3>Please Sign In:</h3></p>
+  <form method="POST" action="/">
+    {% csrf_token %}
+    <table>
+      {{loginForm.as_p}}
+    </table>
+    <input type="submit">
+  </form>
+
+  <p>Don't have an account?</p>
+  <p><a href='register/'>Register Here</a></p>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<p>
+	<h1>My Gift List</h1>
+</p>
+<br />
+  <br />
+
+{% if user != None %}
+  <p><h3>Add Gift</h3></p>
+  <form method="POST">
+    {% csrf_token %}
+    <table>
+      {{giftForm.as_p}}
+    </table>
+    <input type="submit">
+  </form>
+<br />
+<p><h3>{{user}}'s Gifts</h3></p>
+<table id="giftTable">
+      <thead>
+        <th>Gift Name</th>
+      </thead>
+      <tbody>
+        {% for i in giftList %}
+          <tr>
+            <td>{{i.name}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% else %}
+  <p>{{loginMessage}}</p>
+  <p><a href='/'>Login</a></p>
+  <p><a href='/register/'>Register</a></p>
+{% endif %}
+
+{% endblock content %}
